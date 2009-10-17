@@ -1,0 +1,99 @@
+<!DOCTYPE idea-plugin PUBLIC "Plugin/DTD" "http://plugins.intellij.net/plugin.dtd">
+<idea-plugin>
+    <name>eSnippet Pro plugin</name>
+    <description><![CDATA[
+        Make it to access code snippet repository easy!  The central repository is
+              <a href="http://snippet.mvnsearch.org" target="_blank">http://snippet.mvnsearch.org</a>.
+              You can find all source code at <a href="http://code.google.com/p/esnippet" target="_blank">http://code.google.com/p/esnippet</a>
+        <ul> Features List:
+          <li>Snippet repository</li>
+          <li>Snippet Search</li>
+          <li>Snippet Live Template</li>
+          <li>Snippet Editing</li>
+      </ul>
+    ]]></description>
+    <version>1.3.1</version>
+    <vendor email="linux_china@hotmail.com" url="http://snippet.mvnsearch.org"
+            logo="/org/mvnsearch/snippet/plugin/icons/logo.png">linux_china
+    </vendor>
+    <!--<depends>com.intellij.modules.lang</depends>-->
+    <idea-version since-build="9677"/>
+    <change-notes>
+        <![CDATA[
+        <ul>Change List in 1.3.1
+            <li>Bug fix for file fragment creation</li>
+        </ul>
+        <ul>Change List in 1.3
+            <li>Add RubyMine suport</li>
+            <li>Mvnsearch URL Switch only one setting</li>
+        </ul>
+        <ul>Change List in 1.2
+            <li>EAP 8.1 Build</li>
+            <li>Bug fix for DZone snippet search</li>
+            <li>Bug fix for completion</li>
+            <li>Remove word selection for completion</li>
+            <li>Mnemonic completion with hint support</li>
+        </ul>
+        <ul>Change List in 1.1.2
+            <li>Bug fix for class cast exception</li>
+        </ul>
+        <ul>Change List in 1.1.1
+            <li>Bug fix for datacontext between events</li>
+            <li>Minor bugs fixed</li>
+        </ul>
+        <ul>Change List in 1.1
+            <li>Syntax color high light introduced by jsyntaxpane</li>
+            <li>Fix DZone snippet repository query logic</li>
+            <li>Fix regexlib.com snippet repository query logic</li>
+            <li>Minor bug fix
+            </li>
+        </ul>
+        <ul>Change List in 1.0.1
+            <li>Compiled by Jdk 1.5</li>
+        </ul>
+        <ul>Change List in 1.0
+            <li>Initial Version
+            </li>
+        </ul>
+            ]]>
+    </change-notes>
+    <actions>
+        <action id="InsertSnippetFragmentAction"
+                class="org.mvnsearch.snippet.plugin.actions.InsertSnippetFragmentAction"
+                text="Insert snippet fragment" description="insert snipet fragment in editor"
+                icon="/org/mvnsearch/snippet/plugin/icons/insert_snippet.png">
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt SLASH"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+        <action id="CreateSnippetFileAction" class="org.mvnsearch.snippet.plugin.actions.CreateSnippetFileAction"
+                text="create file from snippet" description="Create file from snippet"
+                icon="/org/mvnsearch/snippet/plugin/icons/add_file.png">
+            <add-to-group group-id="NewGroup" anchor="last"/>
+        </action>
+        <group id="eSnippet.ToolGroup">
+            <action id="eSnippet.About" class="org.mvnsearch.snippet.plugin.actions.AboutAction"
+                    icon="/actions/help.png" text="About eSnippet"/>
+            <action id="eSnippet.NextCodeSnippet" class="org.mvnsearch.snippet.plugin.actions.NextCodeSnippetAction"
+                    icon="/actions/nextfile.png" text="Next Code Snippet"/>
+            <action id="eSnippet.PreviousCodeSnippet"
+                    class="org.mvnsearch.snippet.plugin.actions.PreviousCodeSnippetAction"
+                    icon="/actions/prevfile.png" text="Previous Code Snippet"/>
+            <action id="eSnippet.Paste" class="org.mvnsearch.snippet.plugin.actions.PasteAction"
+                    icon="/actions/menu-paste.png" text="Insert into Active Editor"/>
+            <action id="eSnippet.openInBrowser" class="org.mvnsearch.snippet.plugin.actions.OpenSnippetInBrowserAction"
+                    icon="/general/web.png" text="Open snippet detail in browser"/>
+            <action id="eSnippet.edit" class="org.mvnsearch.snippet.plugin.actions.EditSnippetAction"
+                    icon="/actions/editSource.png" text="Edit snippet"/>
+        </group>
+    </actions>
+    <application-components>
+        <component>
+            <implementation-class>org.mvnsearch.snippet.plugin.SnippetAppComponent</implementation-class>
+        </component>
+    </application-components>
+    <project-components>
+        <component>
+            <implementation-class>org.mvnsearch.snippet.plugin.SnippetProjectComponent</implementation-class>
+        </component>
+    </project-components>
+</idea-plugin>
